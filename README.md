@@ -1,4 +1,4 @@
 ludum-dare-27
 =============
 
-Ludum Dare 27 entry
+Entry for Ludum Dare 27 compo
