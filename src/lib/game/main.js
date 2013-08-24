@@ -155,7 +155,7 @@ MyGame = ig.Game.extend({
 		ig.input.bind(ig.KEY.LEFT_ARROW, "left");
         ig.input.bind(ig.KEY.RIGHT_ARROW, "right");
 
-        this.setCheckPoint(LevelLevel1, "ship");
+        this.setCheckPoint(LevelControlRoom, "north");
         this.reset();
 	},
 	
