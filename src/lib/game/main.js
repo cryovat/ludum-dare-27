@@ -13,6 +13,9 @@ ig.module(
     'game.entities.fuzzy',
     'game.entities.savePoint',
 
+    'game.entities.spike',
+    'game.entities.chomp',
+
     'game.levels.level1'
 )
 .defines(function(){
@@ -27,7 +30,9 @@ MyGame = ig.Game.extend({
     CONSTANTS: {
         MOVEMENT_SPEED: 100,
         JUMP_ACCEL: 200,
-        GRAVITY: 140
+        GRAVITY: 140,
+        CHOMP_MOVEMENT_SPEED: 400,
+        CHOMP_SLEEP_TIME: 1
     },
 	
 	init: function() {
@@ -47,17 +52,27 @@ MyGame = ig.Game.extend({
 		
 		this.lifespan = Math.max(0, this.lifespan - ig.system.tick);
         this.gravity = this.CONSTANTS.GRAVITY;
-
-        this.clearColor = this.isTimeShort() ? "#440000" : "#000000";
 	},
 	
 	draw: function() {
-		this.parent();
 
-		var x = ig.system.width/2,
-			y = 16;
-		
-		this.font.draw( 'Power supply: ' + Math.ceil(this.lifespan), x, y, ig.Font.ALIGN.CENTER )
+		var x = ig.system.width / 2,
+			y = ig.system.height / 2,
+            alive = this.getPlayer(),
+            timeShort = this.isTimeShort();
+
+        this.clearColor = !alive || timeShort ? "#440000" : "#000000";
+        this.parent();
+
+        if (alive)
+        {
+            this.font.draw( 'Power supply: ' + Math.ceil(this.lifespan), x, 16, ig.Font.ALIGN.CENTER );
+        }
+        else
+        {
+            this.font.draw( 'You never made it home...', x, y - 8, ig.Font.ALIGN.CENTER );
+            this.font.draw( 'Press R to respawn.', x, y + 8, ig.Font.ALIGN.CENTER );
+        }
     },
 
     lookat: function (entity) {
