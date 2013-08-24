@@ -37,15 +37,14 @@ ig.module(
 
             check: function (other) {
 
-                console.log("momo");
-
                 var name = this.name;
 
                 if (typeof name !== "string" || name.length === 0) {
                     throw new Error("Name not configured for save point at " + this.pos.x + "x" + this.pos.y);
                 }
 
-                ig.game.setCheckPoint(ig.game.currentLevel, this.name);
+                if (ig.game.isCheckPointAllowed())
+                    ig.game.setCheckPoint(ig.game.currentLevel, this.name);
             }
 
         });

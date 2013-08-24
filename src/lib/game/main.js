@@ -62,8 +62,12 @@ MyGame = ig.Game.extend({
 
     lookat: function (entity) {
 
-        ig.game.screen.x = entity.pos.x - ig.system.width / 2;
-        ig.game.screen.y = entity.pos.y - ig.system.height / 2;
+        var x = entity.pos.x - ig.system.width / 2,
+            y = entity.pos.y - ig.system.height / 2,
+            critical = this.isTimeShort();
+
+        ig.game.screen.x = critical ? x + Math.random() * 2 : x;
+        ig.game.screen.y = critical ? y + Math.random() * 2 : y;
 
     },
 
@@ -101,6 +105,10 @@ MyGame = ig.Game.extend({
 
     isTimeShort: function () {
         return this.lifespan < 5;
+    },
+
+    r : function () {
+        return !this.isTimeShort();
     }
 
 });
@@ -108,6 +116,6 @@ MyGame = ig.Game.extend({
 
 // Start the Game with 60fps, a resolution of 320x240, scaled
 // up by a factor of 2
-ig.main( '#canvas', MyGame, 60, 320, 240, 2 );
+ig.main( '#canvas', MyGame, 60, 320, 120, 2 );
 
 });
