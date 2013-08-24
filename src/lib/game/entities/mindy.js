@@ -9,7 +9,7 @@ ig.module(
         EntityMindy = ig.Entity.extend({
 
             size : { x: 16, y: 16 },
-            origin: { x: 8, y: 8},
+            //origin: { x: 8, y: 8},
             name: "Mindy",
 
             animSheet: new ig.AnimationSheet('media/mindy.png', 16, 16),

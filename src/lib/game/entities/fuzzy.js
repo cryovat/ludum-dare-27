@@ -13,7 +13,7 @@ ig.module(
 
             _wmScalable: true,
             _wmDrawBox: true,
-            _wmBoxColor: '#FCDFFF',
+            _wmBoxColor: 'rgba(252, 223, 255, 50)',
 
             check: function (other) {
 

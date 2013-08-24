@@ -5,8 +5,10 @@ ig.module(
 	'impact.game',
 	'impact.font',
 
-    'game.entities.clock',
     'game.entities.mindy',
+    'game.entities.sally',
+
+    'game.entities.clock',
     'game.entities.exit',
     'game.entities.spawn',
     'game.entities.janitor',
@@ -18,7 +20,8 @@ ig.module(
 
     'game.entities.storyTrigger',
 
-    'game.levels.level1'
+    'game.levels.level1',
+    'game.levels.controlRoom'
 )
 .defines(function(){
 
@@ -34,7 +37,7 @@ MyGame = ig.Game.extend({
     CONSTANTS: {
         MOVEMENT_SPEED: 100,
         JUMP_ACCEL: 200,
-        GRAVITY: 140,
+        GRAVITY: 200,
         CHOMP_MOVEMENT_SPEED: 400,
         CHOMP_SLEEP_TIME: 1
     },
@@ -67,10 +70,81 @@ MyGame = ig.Game.extend({
                 {
                     x: 80,   y: 120,   w: 80,  h: 120,
                     text: "Mindy:\nI think I see a light?"
+                }
+            ]
+        },
+
+        scary: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nThis place is dangerous and I'm really low on power..."
                 },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nCan I really find help here?"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nI hear a sound from below..."
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nLet's see..."
+                }
+            ]
+        },
+
+        helloSally: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nD-don't hurt me!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nOh! No! No! I'm also trapped here!"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nA-ah. You're a robot like me!"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nDo you have a power source?"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nNo, that's why I'm staying in this room."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nDo you see the light? It gives power."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nBut if you step out, the battery drains..."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nThere is a ship, but we need four parts to use it."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nThe caves here are too scary..."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nNo problem! I will find them."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nR-really? I'll wait here."
+                }
             ]
         }
-
 
     },
 	
@@ -138,7 +212,9 @@ MyGame = ig.Game.extend({
         {
             if (alive)
             {
-                this.font.draw( 'Power supply: ' + Math.ceil(this.lifespan), x, 16, ig.Font.ALIGN.CENTER );
+                this.font.draw(
+                    (timeShort ? 'WARNING!\n' : '') + 'Power supply: ' + Math.ceil(this.lifespan),
+                    x, 16, ig.Font.ALIGN.CENTER );
             }
             else
             {
@@ -186,6 +262,8 @@ MyGame = ig.Game.extend({
     },
 
     changeLevel: function (level, spawnPoint) {
+
+        if (!level) throw new Error("Level not specified?");
 
         this.spawnPoint = spawnPoint;
         this.currentLevel = level;
