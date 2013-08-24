@@ -7,6 +7,11 @@ ig.module(
 
     'game.entities.clock',
     'game.entities.mindy',
+    'game.entities.exit',
+    'game.entities.spawn',
+    'game.entities.janitor',
+    'game.entities.fuzzy',
+    'game.entities.savePoint',
 
     'game.levels.level1'
 )
@@ -17,6 +22,7 @@ MyGame = ig.Game.extend({
 	// Load a font
 	font: new ig.Font( 'media/04b03.font.png' ),
     lifespan: 10,
+    spawnPoint: "west",
 
     CONSTANTS: {
         MOVEMENT_SPEED: 100,
@@ -26,11 +32,13 @@ MyGame = ig.Game.extend({
 	
 	init: function() {
 
+        ig.input.bind(ig.KEY.R, "reset");
         ig.input.bind(ig.KEY.Z, "jump");
 		ig.input.bind(ig.KEY.LEFT_ARROW, "left");
         ig.input.bind(ig.KEY.RIGHT_ARROW, "right");
 
-        this.loadLevel(LevelLevel1);
+        this.setCheckPoint(LevelLevel1, "ship");
+        this.reset();
 	},
 	
 	update: function() {
@@ -40,7 +48,7 @@ MyGame = ig.Game.extend({
 		this.lifespan = Math.max(0, this.lifespan - ig.system.tick);
         this.gravity = this.CONSTANTS.GRAVITY;
 
-        this.clearColor = this.lifespan < 5 ? "#440000" : "#000000";
+        this.clearColor = this.isTimeShort() ? "#440000" : "#000000";
 	},
 	
 	draw: function() {
@@ -57,7 +65,44 @@ MyGame = ig.Game.extend({
         ig.game.screen.x = entity.pos.x - ig.system.width / 2;
         ig.game.screen.y = entity.pos.y - ig.system.height / 2;
 
+    },
+
+    getPlayer: function () {
+        return  this.getEntityByName("Mindy");
+    },
+
+    setCheckPoint: function (level, spawnPoint)
+    {
+        this.checkPoint = {
+            level: level,
+            spawnPoint: spawnPoint,
+            lifespan: this.lifespan
+        };
+    },
+
+    reset: function () {
+
+        if (!this.checkPoint)
+            throw new Error("Checkpoint not set!");
+
+        var p = this.checkPoint;
+
+        this.lifespan = p.lifespan;
+        this.changeLevel(p.level, p.spawnPoint);
+    },
+
+    changeLevel: function (level, spawnPoint) {
+
+        this.spawnPoint = spawnPoint;
+        this.currentLevel = level;
+        this.loadLevelDeferred(level);
+
+    },
+
+    isTimeShort: function () {
+        return this.lifespan < 5;
     }
+
 });
 
 
