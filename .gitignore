@@ -1,5 +1,6 @@
 .idea/workspace.xml
 .idea/tasks.xml
+src/game.min.js
 src/weltmeister.html
 src/tools
 src/lib/impact
