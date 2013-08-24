@@ -77,6 +77,8 @@ MyGame = ig.Game.extend({
 
     setCheckPoint: function (level, spawnPoint)
     {
+        this.lifespan = Math.max(this.lifespan, 10);
+
         this.checkPoint = {
             level: level,
             spawnPoint: spawnPoint,
@@ -106,10 +108,6 @@ MyGame = ig.Game.extend({
     isTimeShort: function () {
         return this.lifespan < 5;
     },
-
-    r : function () {
-        return !this.isTimeShort();
-    }
 
 });
 

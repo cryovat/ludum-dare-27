@@ -43,8 +43,7 @@ ig.module(
                     throw new Error("Name not configured for save point at " + this.pos.x + "x" + this.pos.y);
                 }
 
-                if (ig.game.isCheckPointAllowed())
-                    ig.game.setCheckPoint(ig.game.currentLevel, this.name);
+                ig.game.setCheckPoint(ig.game.currentLevel, this.name);
             }
 
         });
