@@ -3,7 +3,12 @@ ig.module(
 )
 .requires(
 	'impact.game',
-	'impact.font'
+	'impact.font',
+
+    'game.entities.clock',
+    'game.entities.mindy',
+
+    'game.levels.level1'
 )
 .defines(function(){
 
@@ -11,30 +16,48 @@ MyGame = ig.Game.extend({
 	
 	// Load a font
 	font: new ig.Font( 'media/04b03.font.png' ),
-	
+    lifespan: 10,
+
+    CONSTANTS: {
+        MOVEMENT_SPEED: 100,
+        JUMP_ACCEL: 200,
+        GRAVITY: 140
+    },
 	
 	init: function() {
-		// Initialize your game here; bind keys etc.
+
+        ig.input.bind(ig.KEY.Z, "jump");
+		ig.input.bind(ig.KEY.LEFT_ARROW, "left");
+        ig.input.bind(ig.KEY.RIGHT_ARROW, "right");
+
+        this.loadLevel(LevelLevel1);
 	},
 	
 	update: function() {
 		// Update all entities and backgroundMaps
 		this.parent();
 		
-		// Add your own, additional update code here
+		this.lifespan = Math.max(0, this.lifespan - ig.system.tick);
+        this.gravity = this.CONSTANTS.GRAVITY;
+
+        this.clearColor = this.lifespan < 5 ? "#440000" : "#000000";
 	},
 	
 	draw: function() {
-		// Draw all entities and backgroundMaps
 		this.parent();
-		
-		
-		// Add your own drawing code here
+
 		var x = ig.system.width/2,
-			y = ig.system.height/2;
+			y = 16;
 		
-		this.font.draw( 'It Works!', x, y, ig.Font.ALIGN.CENTER );
-	}
+		this.font.draw( 'Power supply: ' + Math.ceil(this.lifespan), x, y, ig.Font.ALIGN.CENTER )
+    },
+
+    lookat: function (entity) {
+
+        ig.game.screen.x = entity.pos.x - ig.system.width / 2;
+        ig.game.screen.y = entity.pos.y - ig.system.height / 2;
+
+    }
 });
 
 
