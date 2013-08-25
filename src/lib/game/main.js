@@ -5,9 +5,12 @@ ig.module(
 	'impact.game',
 	'impact.font',
 
+    'game.entities.delay',
+
     'game.entities.mindy',
     'game.entities.sally',
 
+    'game.entities.part',
     'game.entities.clock',
     'game.entities.exit',
     'game.entities.spawn',
@@ -15,13 +18,16 @@ ig.module(
     'game.entities.fuzzy',
     'game.entities.savePoint',
 
+    'game.entities.tractorBeam',
     'game.entities.spike',
     'game.entities.chomp',
 
     'game.entities.storyTrigger',
 
     'game.levels.level1',
-    'game.levels.controlRoom'
+    'game.levels.controlRoom',
+    'game.levels.partOne',
+    'game.levels.partTwo'
 )
 .defines(function(){
 
@@ -38,6 +44,8 @@ MyGame = ig.Game.extend({
         MOVEMENT_SPEED: 100,
         JUMP_ACCEL: 200,
         GRAVITY: 200,
+        BEAM_DRAG: 100,
+        DRAG_REDUCE: 50,
         CHOMP_MOVEMENT_SPEED: 400,
         CHOMP_SLEEP_TIME: 1
     },
@@ -144,7 +152,95 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nR-really? I'll wait here."
                 }
             ]
-        }
+        },
+
+        partOne: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nWoah, this looks heavy."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nSally! I found it!"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nThat's great!"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nYeah, soon we'll be out of here!"
+                }
+            ]
+        },
+
+        partTwoIntro: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nThis place looks pretty fishy..."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nI don't know why, but it feels off."
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nA-are you OK down there?"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nYeah, just gotta be careful!"
+                }
+            ]
+        },
+
+        partTwoTrap: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nN-No!!!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nMindy! What's wrong?!"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nS-Sally, I don't think I'll be back..."
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nMindy? Mindy?! MINDY!!!!"
+                }
+            ]
+        },
+
+        partTwo: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nWhew, that went on forever.\nBut here it is!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nSally! I-I found the second one!"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nYay! We're getting out of here!"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nJust two more now!"
+                }
+            ]
+        },
 
     },
 	
@@ -155,7 +251,7 @@ MyGame = ig.Game.extend({
 		ig.input.bind(ig.KEY.LEFT_ARROW, "left");
         ig.input.bind(ig.KEY.RIGHT_ARROW, "right");
 
-        this.setCheckPoint(LevelControlRoom, "north");
+        this.setCheckPoint(LevelPartTwo, "rightHole");
         this.reset();
 	},
 	
@@ -241,7 +337,7 @@ MyGame = ig.Game.extend({
 
     setCheckPoint: function (level, spawnPoint)
     {
-        this.lifespan = Math.max(this.lifespan, 10);
+        this.lifespan = 10;
 
         this.checkPoint = {
             level: level,

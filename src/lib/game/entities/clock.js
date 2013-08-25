@@ -41,7 +41,7 @@ ig.module(
 
             check: function (other)
             {
-                ig.game.lifespan += this.boost;
+                ig.game.lifespan = Math.min(ig.game.lifespan + this.boost, 10);
                 this.kill();
             }
 

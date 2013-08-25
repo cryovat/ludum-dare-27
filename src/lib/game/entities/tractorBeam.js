@@ -1,39 +1,28 @@
 ig.module(
-        'game.entities.fuzzy'
+        'game.entities.tractorBeam'
     )
     .requires(
         'impact.entity'
     )
     .defines(function () {
 
-        EntityFuzzy = ig.Entity.extend({
+        EntityTractorBeam = ig.Entity.extend({
 
             size : { x: 16, y: 16 },
             checkAgainst: ig.Entity.TYPE.A,
 
-            active: true,
-            requiredStory: "",
-
             gravityFactor: 0,
 
-            image: new ig.Image ( 'media/fuzzy.png' ),
-
+            image: new ig.Image ( 'media/tractorbeam.png' ),
 
             _wmScalable: true,
 
             update: function ()
             {
                 this.parent();
-
-                this.active = !this.requiredStory || (ig.game.stories && ig.game.stories[this.requiredStory] && ig.game.stories[this.requiredStory].shown);
             },
 
             draw: function () {
-
-                if (!this.active)
-                {
-                    return;
-                }
 
                 var x = this.pos.x - this.offset.x - ig.game._rscreen.x,
                     y = this.pos.y - this.offset.y - ig.game._rscreen.y,
@@ -58,12 +47,7 @@ ig.module(
 
             check: function (other) {
 
-                if (!this.active)
-                {
-                    return;
-                }
-
-                ig.game.lifespan = Math.min(ig.game.lifespan + ig.system.tick, 10);
+                other.vel.y = -ig.game.CONSTANTS.BEAM_DRAG;
 
             }
 

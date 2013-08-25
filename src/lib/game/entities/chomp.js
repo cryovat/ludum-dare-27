@@ -17,6 +17,8 @@ ig.module(
             origin: { x: 16, y: 16},
             direction: "vertical",
 
+            startsSleeping: false,
+
             gravityFactor: 0,
 
             animSheet: new ig.AnimationSheet('media/chomp.png', 32, 32),
@@ -35,11 +37,15 @@ ig.module(
                 this.parent(x, y, settings);
                 this.addAnim("default",  1, [0]);
 
-                if (ig.game.CONSTANTS)
+                if (ig.game.CONSTANTS && !this.startsSleeping)
                 {
                     this.launch();
                 }
 
+            },
+
+            triggeredBy: function () {
+                this.launch();
             },
 
             update: function () {
