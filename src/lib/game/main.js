@@ -18,6 +18,9 @@ ig.module(
     'game.entities.fuzzy',
     'game.entities.savePoint',
 
+    'game.entities.button',
+
+    'game.entities.killBeam',
     'game.entities.tractorBeam',
     'game.entities.spike',
     'game.entities.chomp',
@@ -27,7 +30,8 @@ ig.module(
     'game.levels.level1',
     'game.levels.controlRoom',
     'game.levels.partOne',
-    'game.levels.partTwo'
+    'game.levels.partTwo',
+    'game.levels.partThree'
 )
 .defines(function(){
 
@@ -240,7 +244,7 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nJust two more now!"
                 }
             ]
-        },
+        }
 
     },
 	
@@ -251,7 +255,7 @@ MyGame = ig.Game.extend({
 		ig.input.bind(ig.KEY.LEFT_ARROW, "left");
         ig.input.bind(ig.KEY.RIGHT_ARROW, "right");
 
-        this.setCheckPoint(LevelPartTwo, "rightHole");
+        this.setCheckPoint(LevelPartThree, "chompBeam");
         this.reset();
 	},
 	
