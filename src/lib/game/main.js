@@ -68,23 +68,23 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nOh no, my ship has crashed!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nThis place looks deserted!"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nAnd my battery is running very low..."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nI need to find a battery!"
                 },
                 {
-                    x: 0,  y: 120,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nMaybe in that big building over there!"
                 },
                 {
-                    x: 80,   y: 120,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nI think I see a light?"
                 }
             ]
@@ -98,15 +98,15 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nThis place is dangerous and I'm really low on power..."
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nCan I really find help here?"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nI hear a sound from below..."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nLet's see..."
                 }
             ]
@@ -124,11 +124,11 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nOh! No! No! I'm also trapped here!"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nA-ah. You're a robot like me!"
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nDo you have a power source?"
                 },
                 {
@@ -152,7 +152,7 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nThe caves here are too scary..."
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nNo problem! I will find them."
                 },
                 {
@@ -170,15 +170,15 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nWoah, this looks heavy."
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nSally! I found it!"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nThat's great!"
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nYeah, soon we'll be out of here!"
                 }
             ]
@@ -192,15 +192,15 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nThis place looks pretty fishy..."
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nI don't know why, but it feels off."
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nA-are you OK down there?"
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nYeah, just gotta be careful!"
                 }
             ]
@@ -218,11 +218,11 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nMindy! What's wrong?!"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nS-Sally, I don't think I'll be back..."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nMindy? Mindy?! MINDY!!!!"
                 }
             ]
@@ -236,15 +236,15 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nWhew, that went on forever.\nBut here it is!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nSally! I-I found the second one!"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nYay! We're getting out of here!"
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nJust two more now!"
                 }
             ]
@@ -262,11 +262,11 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nHoly whiskers! We got all the parts! "
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nDidn't you say there were four parts?"
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\n!!!!!"
                 },
                 {
@@ -274,7 +274,7 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nA-aah! O-of course! F-four! Four!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nBut you just said..."
                 },
                 {
@@ -286,7 +286,7 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nWe can't leave without it!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nWhy are you shifty all of a sudden?"
                 },
                 {
@@ -298,7 +298,7 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nI'm the picture of honesty!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nJust one more then? OK...\nBut I think you're hiding something!"
                 }
             ]
@@ -308,7 +308,7 @@ MyGame = ig.Game.extend({
             shown: false,
             frames: [
                 {
-                    x: 0,   y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nS-so. This is the most important bit."
                 },
                 {
@@ -316,11 +316,11 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nWe can't leave without it at all! No way!"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nBut this place is the scariest!"
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nThe super scariest!"
                 },
                 {
@@ -332,8 +332,8 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nBut please, find him!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
-                    text: "Mindy:\nHim? What are you send me to do?"
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nHim? What are you sending me to do?"
                 },
                 {
                     x: 80,  y: 0,   w: 80,  h: 120,
@@ -350,31 +350,31 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nSally? Can you hear me?"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nThis doesn't seem so bad!"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nB-but it is! When the angry robot stole him..."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\n...I tried to follow them. But then I saw it."
                 },
                 {
-                    x: 0,  y: 120,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nIt's terrifying... So dangerous..."
                 },
                 {
-                    x: 80,   y: 120,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nSo there's a monster at the end?"
                 },
                 {
-                    x: 0,  y: 120,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nY-yes! I ran away screaming at once!"
                 },
                 {
-                    x: 80,   y: 120,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nI better not let my guard down..."
                 }
             ]
@@ -388,15 +388,15 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nI'm getting a bit worried."
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nThis does seem too easy."
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nAnd Sally has been here for a long time."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nIt must have been really scary."
                 }
             ]
@@ -406,51 +406,51 @@ MyGame = ig.Game.extend({
             shown: false,
             frames: [
                 {
-                    x: 0,   y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nWHAAAA!!!!! There it is!!!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\n......."
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\n....................."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nSally, are you still there?"
                 },
                 {
-                    x: 0,   y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nI-I am. You're still alive?"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nSally. Did you ever go into the other caves?"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\n......no."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nThis was the first one I went into."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nAnd when I saw that. N-n-no! I ran!"
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nBut you are brave! Keep going! P-please!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nRelax, I will..."
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nThere better not be a punchline\nat the end of this..."
                 }
             ]
@@ -460,23 +460,23 @@ MyGame = ig.Game.extend({
             shown: false,
             frames: [
                 {
-                    x: 0,   y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nM-Mister Whiskers!!!! You're safe!"
                 },
                 {
-                    x: 80,  y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\n......."
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nI'm speechless..."
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
-                    text: "Mindy:\nHow is this in any way neccessary\n for spaceflight?"
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nHow is this in any way necessary\n for spaceflight?"
                 },
                 {
-                    x: 0,   y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nO-of course it's necessary!"
                 },
                 {
@@ -484,11 +484,11 @@ MyGame = ig.Game.extend({
                     text: "Sally:\nSpace is scary! But Mister Whisker protects me!"
                 },
                 {
-                    x: 160, y: 0,   w: 80,  h: 120,
+                    x: 0,   y: 0,   w: 80,  h: 120,
                     text: "Mindy:\nAre you sure you can fix the spaceship?"
                 },
                 {
-                    x: 240,  y: 0,   w: 80,  h: 120,
+                    x: 80,  y: 0,   w: 80,  h: 120,
                     text: "Sally:\nOf course! Hurry back here!"
                 }
             ]
