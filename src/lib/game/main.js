@@ -565,7 +565,7 @@ MyGame = ig.Game.extend({
             offset,
             textHeight;
 
-        this.clearColor = ingame && (!alive || timeShort) ? "#440000" : "#000000";
+        this.clearColor = ingame && (!alive || timeShort) ? "#330000" : "#000000";
         this.parent();
 
         if (cs)
