@@ -10,6 +10,7 @@ ig.module(
     'game.entities.mindy',
     'game.entities.sally',
 
+    'game.entities.teddy',
     'game.entities.part',
     'game.entities.clock',
     'game.entities.exit',
@@ -27,11 +28,14 @@ ig.module(
 
     'game.entities.storyTrigger',
 
+    'game.levels.title',
     'game.levels.level1',
     'game.levels.controlRoom',
     'game.levels.partOne',
     'game.levels.partTwo',
-    'game.levels.partThree'
+    'game.levels.partThree',
+    'game.levels.partFour',
+    'game.levels.endGame'
 )
 .defines(function(){
 
@@ -244,6 +248,272 @@ MyGame = ig.Game.extend({
                     text: "Mindy:\nJust two more now!"
                 }
             ]
+        },
+
+        partThree: {
+            shown: false,
+                frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nYay! Piece three!!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nHoly whiskers! We got all the parts! "
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nDidn't you say there were four parts?"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\n!!!!!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nA-aah! O-of course! F-four! Four!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nBut you just said..."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nN-no! You misunderstood!\nPart four is critical!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nWe can't leave without it!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nWhy are you shifty all of a sudden?"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nM-me? I'm not shifty at all!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nI'm the picture of honesty!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nJust one more then? OK...\nBut I think you're hiding something!"
+                }
+            ]
+        },
+
+        partFourIntro: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nS-so. This is the most important bit."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nWe can't leave without it at all! No way!"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nBut this place is the scariest!"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nThe super scariest!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nI could never go in there at all. No way."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nBut please, find him!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nHim? What are you send me to do?"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nEh! E-eh! I'll explain later.\nFor now, please. Just find him."
+                }
+            ]
+        },
+
+        notSoBad: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nSally? Can you hear me?"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nThis doesn't seem so bad!"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nB-but it is! When the angry robot stole him..."
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\n...I tried to follow them. But then I saw it."
+                },
+                {
+                    x: 0,  y: 120,   w: 80,  h: 120,
+                    text: "Sally:\nIt's terrifying... So dangerous..."
+                },
+                {
+                    x: 80,   y: 120,   w: 80,  h: 120,
+                    text: "Mindy:\nSo there's a monster at the end?"
+                },
+                {
+                    x: 0,  y: 120,   w: 80,  h: 120,
+                    text: "Sally:\nY-yes! I ran away screaming at once!"
+                },
+                {
+                    x: 80,   y: 120,   w: 80,  h: 120,
+                    text: "Mindy:\nI better not let my guard down..."
+                }
+            ]
+        },
+
+        reallyNotSoBad: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nI'm getting a bit worried."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nThis does seem too easy."
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nAnd Sally has been here for a long time."
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nIt must have been really scary."
+                }
+            ]
+        },
+
+        reallyNow: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nWHAAAA!!!!! There it is!!!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\n......."
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\n....................."
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nSally, are you still there?"
+                },
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nI-I am. You're still alive?"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nSally. Did you ever go into the other caves?"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Sally:\n......no."
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nThis was the first one I went into."
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nAnd when I saw that. N-n-no! I ran!"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nBut you are brave! Keep going! P-please!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nRelax, I will..."
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nThere better not be a punchline\nat the end of this..."
+                }
+            ]
+        },
+
+        partFour: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nM-Mister Whiskers!!!! You're safe!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\n......."
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nI'm speechless..."
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nHow is this in any way neccessary\n for spaceflight?"
+                },
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nO-of course it's necessary!"
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nSpace is scary! But Mister Whisker protects me!"
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "Mindy:\nAre you sure you can fix the spaceship?"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Sally:\nOf course! Hurry back here!"
+                }
+            ]
+        },
+
+        epilogue: {
+            shown: false,
+            frames: [
+                {
+                    x: 0,   y: 0,   w: 80,  h: 120,
+                    text: "And so the two robots repaired the ship."
+                },
+                {
+                    x: 80,  y: 0,   w: 80,  h: 120,
+                    text: "And along with Mister Whiskers, they left the strange world."
+                },
+                {
+                    x: 160, y: 0,   w: 80,  h: 120,
+                    text: "What new adventures await them?"
+                },
+                {
+                    x: 240,  y: 0,   w: 80,  h: 120,
+                    text: "Maybe another Ludum Dare will tell..."
+                }
+            ]
         }
 
     },
@@ -255,7 +525,7 @@ MyGame = ig.Game.extend({
 		ig.input.bind(ig.KEY.LEFT_ARROW, "left");
         ig.input.bind(ig.KEY.RIGHT_ARROW, "right");
 
-        this.setCheckPoint(LevelPartThree, "chompBeam");
+        this.setCheckPoint(LevelTitle, "meow");
         this.reset();
 	},
 	
@@ -288,13 +558,14 @@ MyGame = ig.Game.extend({
 			y = ig.system.height / 2,
             alive = this.getPlayer(),
             timeShort = this.isTimeShort(),
+            ingame = this.isInGame(),
             cs = this.currentStory,
             frame,
             text,
             offset,
             textHeight;
 
-        this.clearColor = !alive || timeShort ? "#440000" : "#000000";
+        this.clearColor = ingame && (!alive || timeShort) ? "#440000" : "#000000";
         this.parent();
 
         if (cs)
@@ -308,7 +579,7 @@ MyGame = ig.Game.extend({
             this.frames.draw(offset, 0, frame.x, frame.y, frame.w, frame.h);
             this.font.draw(text, x, ig.system.height - textHeight - 4, ig.Font.ALIGN.CENTER);
         }
-        else
+        else if (ingame)
         {
             if (alive)
             {
@@ -373,6 +644,18 @@ MyGame = ig.Game.extend({
 
     isTimeShort: function () {
         return this.lifespan < 5;
+    },
+
+    isInGame : function () {
+        return !this.isTitleScreen() && !this.isGameOver();
+    },
+
+    isTitleScreen: function () {
+        return this.currentLevel === LevelTitle;
+    },
+
+    isGameOver: function () {
+        return this.currentLevel === LevelEndGame;
     },
 
     showStory: function (name)
